@@ -1,5 +1,17 @@
-import type { Core } from '@strapi/strapi';
+// config/plugins.ts
 
-const config = ({ env }: Core.Config.Shared.ConfigParams): Core.Config.Plugin => ({});
+import type { Core } from "@strapi/strapi";
+
+const config = ({
+  env,
+}: Core.Config.Shared.ConfigParams): Core.Config.Plugin => ({
+  "users-permissions": {
+    config: {
+      register: {
+         allowedFields: ["location", "contactNo"],
+      },
+    },
+  },
+});
 
 export default config;

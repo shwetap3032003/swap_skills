@@ -1,0 +1,27 @@
+{
+  "kind": "collectionType",
+  "collectionName": "edit_skills",
+  "info": {
+    "singularName": "edit-skill",
+    "pluralName": "edit-skills",
+    "displayName": "edit-skill"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "offerSkills": {
+      "type": "json"
+    },
+    "learnSkills": {
+      "type": "json"
+    },
+    "user": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "plugin::users-permissions.user",
+      "mappedBy": "edit_skill"
+    }
+  }
+}

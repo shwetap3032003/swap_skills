@@ -1,0 +1,38 @@
+{
+  "kind": "collectionType",
+  "collectionName": "requests",
+  "info": {
+    "singularName": "request",
+    "pluralName": "requests",
+    "displayName": "request"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "senderName": {
+      "type": "string"
+    },
+    "receiverName": {
+      "type": "string"
+    },
+    "offerSkill": {
+      "type": "string"
+    },
+    "wantSkill": {
+      "type": "string"
+    },
+    "message": {
+      "type": "text"
+    },
+    "requestStatus": {
+      "type": "enumeration",
+      "enum": [
+        "pending",
+        "accepted",
+        "rejected"
+      ]
+    }
+  }
+}
