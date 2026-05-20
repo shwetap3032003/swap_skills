@@ -1025,7 +1025,6 @@ export interface PluginUsersPermissionsUser
     draftAndPublish: false;
   };
   attributes: {
-    about: Schema.Attribute.Text;
     aboutText: Schema.Attribute.Relation<'oneToOne', 'api::about.about'>;
     blocked: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
     confirmationToken: Schema.Attribute.String & Schema.Attribute.Private;
