@@ -78,6 +78,15 @@
     "contactNo": {
       "type": "integer",
       "required": false
+    },
+    "about": {
+      "type": "text"
+    },
+    "aboutText": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::about.about",
+      "mappedBy": "user"
     }
   }
 }
