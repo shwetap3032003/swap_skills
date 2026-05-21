@@ -527,6 +527,37 @@ export interface ApiRequestRequest extends Struct.CollectionTypeSchema {
   };
 }
 
+export interface ApiReviewReview extends Struct.CollectionTypeSchema {
+  collectionName: 'reviews';
+  info: {
+    displayName: 'review';
+    pluralName: 'reviews';
+    singularName: 'review';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    comment: Schema.Attribute.Text;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::review.review'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    ratedBy: Schema.Attribute.JSON;
+    ratedTo: Schema.Attribute.JSON;
+    ratingCount: Schema.Attribute.Integer;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiSwapperSwapper extends Struct.CollectionTypeSchema {
   collectionName: 'swappers';
   info: {
@@ -1087,6 +1118,7 @@ declare module '@strapi/strapi' {
       'api::about.about': ApiAboutAbout;
       'api::edit-skill.edit-skill': ApiEditSkillEditSkill;
       'api::request.request': ApiRequestRequest;
+      'api::review.review': ApiReviewReview;
       'api::swapper.swapper': ApiSwapperSwapper;
       'plugin::content-releases.release': PluginContentReleasesRelease;
       'plugin::content-releases.release-action': PluginContentReleasesReleaseAction;
