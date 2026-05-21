@@ -549,8 +549,11 @@ export interface ApiReviewReview extends Struct.CollectionTypeSchema {
     > &
       Schema.Attribute.Private;
     publishedAt: Schema.Attribute.DateTime;
-    ratedBy: Schema.Attribute.JSON;
-    ratedTo: Schema.Attribute.JSON;
+    ratedById: Schema.Attribute.Integer;
+    ratedByInitials: Schema.Attribute.String;
+    ratedByName: Schema.Attribute.String;
+    ratedToId: Schema.Attribute.Integer;
+    ratedToName: Schema.Attribute.String;
     ratingCount: Schema.Attribute.Integer;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &

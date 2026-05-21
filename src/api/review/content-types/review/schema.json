@@ -17,11 +17,20 @@
     "comment": {
       "type": "text"
     },
-    "ratedBy": {
-      "type": "json"
+    "ratedById": {
+      "type": "integer"
     },
-    "ratedTo": {
-      "type": "json"
+    "ratedByName": {
+      "type": "string"
+    },
+    "ratedByInitials": {
+      "type": "string"
+    },
+    "ratedToId": {
+      "type": "integer"
+    },
+    "ratedToName": {
+      "type": "string"
     }
   }
 }
