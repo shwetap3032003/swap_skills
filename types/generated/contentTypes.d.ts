@@ -515,11 +515,11 @@ export interface ApiRequestRequest extends Struct.CollectionTypeSchema {
     message: Schema.Attribute.Text;
     offerSkill: Schema.Attribute.String;
     publishedAt: Schema.Attribute.DateTime;
-    receiverName: Schema.Attribute.String;
+    receiverId: Schema.Attribute.Integer;
     requestStatus: Schema.Attribute.Enumeration<
       ['pending', 'accepted', 'rejected']
     >;
-    senderName: Schema.Attribute.String;
+    senderId: Schema.Attribute.Integer;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;

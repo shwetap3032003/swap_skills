@@ -38,18 +38,18 @@
 
 
 
-// export default ({ env }) => ({
-//   connection: {
-//     client: env("DATABASE_CLIENT", "postgres"),
-//     connection: {
-//       connectionString: env("DATABASE_URL"),
-//       ssl: env.bool("DATABASE_SSL", true)
-//         ? { rejectUnauthorized: false }
-//         : false,
-//     },
-//     acquireConnectionTimeout: env.int("DATABASE_CONNECTION_TIMEOUT", 60000),
-//   },
-// });
+// // export default ({ env }) => ({
+// //   connection: {
+// //     client: env("DATABASE_CLIENT", "postgres"),
+// //     connection: {
+// //       connectionString: env("DATABASE_URL"),
+// //       ssl: env.bool("DATABASE_SSL", true)
+// //         ? { rejectUnauthorized: false }
+// //         : false,
+// //     },
+// //     acquireConnectionTimeout: env.int("DATABASE_CONNECTION_TIMEOUT", 60000),
+// //   },
+// // });
 
 // export default ({ env }) => {
 //   const client = env("DATABASE_CLIENT", "postgres");

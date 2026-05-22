@@ -11,12 +11,6 @@
   },
   "pluginOptions": {},
   "attributes": {
-    "senderName": {
-      "type": "string"
-    },
-    "receiverName": {
-      "type": "string"
-    },
     "offerSkill": {
       "type": "string"
     },
@@ -33,6 +27,12 @@
         "accepted",
         "rejected"
       ]
+    },
+    "senderId": {
+      "type": "integer"
+    },
+    "receiverId": {
+      "type": "integer"
     }
   }
 }
