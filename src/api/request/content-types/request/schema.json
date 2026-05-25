@@ -30,15 +30,15 @@
     },
     "sender": {
       "type": "relation",
-      "relation": "oneToOne",
+      "relation": "manyToOne",
       "target": "plugin::users-permissions.user",
-      "mappedBy": "sentRequests"
+      "inversedBy": "sent_requests"
     },
     "receiver": {
       "type": "relation",
-      "relation": "oneToOne",
+      "relation": "manyToOne",
       "target": "plugin::users-permissions.user",
-      "mappedBy": "receivedRequests"
+      "inversedBy": "received_requests"
     }
   }
 }

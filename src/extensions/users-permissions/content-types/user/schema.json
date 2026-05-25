@@ -75,33 +75,32 @@
     "location": {
       "type": "text"
     },
-    "contactNo": {
-      "type": "integer",
-      "required": false
-    },
     "aboutText": {
       "type": "relation",
       "relation": "oneToOne",
       "target": "api::about.about",
       "mappedBy": "user"
     },
-    "sentRequests": {
-      "type": "relation",
-      "relation": "oneToOne",
-      "target": "api::request.request",
-      "inversedBy": "sender"
-    },
-    "receivedRequests": {
-      "type": "relation",
-      "relation": "oneToOne",
-      "target": "api::request.request",
-      "inversedBy": "receiver"
-    },
     "rating": {
       "type": "decimal"
     },
     "reviews": {
       "type": "integer"
+    },
+    "contactNo": {
+      "type": "string"
+    },
+    "sent_requests": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::request.request",
+      "mappedBy": "sender"
+    },
+    "received_requests": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::request.request",
+      "mappedBy": "receiver"
     }
   }
 }

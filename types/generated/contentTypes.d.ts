@@ -517,14 +517,14 @@ export interface ApiRequestRequest extends Struct.CollectionTypeSchema {
     offerSkill: Schema.Attribute.String;
     publishedAt: Schema.Attribute.DateTime;
     receiver: Schema.Attribute.Relation<
-      'oneToOne',
+      'manyToOne',
       'plugin::users-permissions.user'
     >;
     requestStatus: Schema.Attribute.Enumeration<
       ['pending', 'accepted', 'rejected']
     >;
     sender: Schema.Attribute.Relation<
-      'oneToOne',
+      'manyToOne',
       'plugin::users-permissions.user'
     >;
     updatedAt: Schema.Attribute.DateTime;
@@ -1070,7 +1070,7 @@ export interface PluginUsersPermissionsUser
     blocked: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
     confirmationToken: Schema.Attribute.String & Schema.Attribute.Private;
     confirmed: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
-    contactNo: Schema.Attribute.Integer;
+    contactNo: Schema.Attribute.String;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -1098,8 +1098,8 @@ export interface PluginUsersPermissionsUser
     provider: Schema.Attribute.String;
     publishedAt: Schema.Attribute.DateTime;
     rating: Schema.Attribute.Decimal;
-    receivedRequests: Schema.Attribute.Relation<
-      'oneToOne',
+    received_requests: Schema.Attribute.Relation<
+      'oneToMany',
       'api::request.request'
     >;
     resetPasswordToken: Schema.Attribute.String & Schema.Attribute.Private;
@@ -1108,7 +1108,10 @@ export interface PluginUsersPermissionsUser
       'manyToOne',
       'plugin::users-permissions.role'
     >;
-    sentRequests: Schema.Attribute.Relation<'oneToOne', 'api::request.request'>;
+    sent_requests: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::request.request'
+    >;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
