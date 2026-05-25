@@ -8,7 +8,7 @@ const config = ({
   "users-permissions": {
     config: {
       register: {
-         allowedFields: ["location", "contactNo"],
+         allowedFields: ["location", "contactNo", "rating", "reviews"],
       },
     },
   },

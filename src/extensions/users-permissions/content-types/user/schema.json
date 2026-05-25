@@ -84,6 +84,24 @@
       "relation": "oneToOne",
       "target": "api::about.about",
       "mappedBy": "user"
+    },
+    "sentRequests": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::request.request",
+      "inversedBy": "sender"
+    },
+    "receivedRequests": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::request.request",
+      "inversedBy": "receiver"
+    },
+    "rating": {
+      "type": "decimal"
+    },
+    "reviews": {
+      "type": "integer"
     }
   }
 }

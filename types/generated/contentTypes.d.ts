@@ -470,6 +470,7 @@ export interface ApiEditSkillEditSkill extends Struct.CollectionTypeSchema {
     draftAndPublish: true;
   };
   attributes: {
+    categories: Schema.Attribute.JSON;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -515,11 +516,17 @@ export interface ApiRequestRequest extends Struct.CollectionTypeSchema {
     message: Schema.Attribute.Text;
     offerSkill: Schema.Attribute.String;
     publishedAt: Schema.Attribute.DateTime;
-    receiverId: Schema.Attribute.Integer;
+    receiver: Schema.Attribute.Relation<
+      'oneToOne',
+      'plugin::users-permissions.user'
+    >;
     requestStatus: Schema.Attribute.Enumeration<
       ['pending', 'accepted', 'rejected']
     >;
-    senderId: Schema.Attribute.Integer;
+    sender: Schema.Attribute.Relation<
+      'oneToOne',
+      'plugin::users-permissions.user'
+    >;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -1090,11 +1097,18 @@ export interface PluginUsersPermissionsUser
       }>;
     provider: Schema.Attribute.String;
     publishedAt: Schema.Attribute.DateTime;
+    rating: Schema.Attribute.Decimal;
+    receivedRequests: Schema.Attribute.Relation<
+      'oneToOne',
+      'api::request.request'
+    >;
     resetPasswordToken: Schema.Attribute.String & Schema.Attribute.Private;
+    reviews: Schema.Attribute.Integer;
     role: Schema.Attribute.Relation<
       'manyToOne',
       'plugin::users-permissions.role'
     >;
+    sentRequests: Schema.Attribute.Relation<'oneToOne', 'api::request.request'>;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;

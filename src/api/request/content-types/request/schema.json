@@ -28,11 +28,17 @@
         "rejected"
       ]
     },
-    "senderId": {
-      "type": "integer"
+    "sender": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "plugin::users-permissions.user",
+      "mappedBy": "sentRequests"
     },
-    "receiverId": {
-      "type": "integer"
+    "receiver": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "plugin::users-permissions.user",
+      "mappedBy": "receivedRequests"
     }
   }
 }

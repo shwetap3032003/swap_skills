@@ -22,6 +22,9 @@
       "relation": "oneToOne",
       "target": "plugin::users-permissions.user",
       "mappedBy": "edit_skill"
+    },
+    "categories": {
+      "type": "json"
     }
   }
 }
