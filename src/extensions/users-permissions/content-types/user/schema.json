@@ -101,6 +101,9 @@
       "relation": "oneToMany",
       "target": "api::request.request",
       "mappedBy": "receiver"
+    },
+    "swaps": {
+      "type": "integer"
     }
   }
 }

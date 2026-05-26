@@ -568,46 +568,6 @@ export interface ApiReviewReview extends Struct.CollectionTypeSchema {
   };
 }
 
-export interface ApiSwapperSwapper extends Struct.CollectionTypeSchema {
-  collectionName: 'swappers';
-  info: {
-    displayName: 'swapper';
-    pluralName: 'swappers';
-    singularName: 'swapper';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  attributes: {
-    color: Schema.Attribute.String;
-    createdAt: Schema.Attribute.DateTime;
-    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-    initials: Schema.Attribute.String;
-    locale: Schema.Attribute.String & Schema.Attribute.Private;
-    localizations: Schema.Attribute.Relation<
-      'oneToMany',
-      'api::swapper.swapper'
-    > &
-      Schema.Attribute.Private;
-    location: Schema.Attribute.String;
-    name: Schema.Attribute.String;
-    publishedAt: Schema.Attribute.DateTime;
-    rating: Schema.Attribute.Decimal;
-    reviews: Schema.Attribute.Integer;
-    skills: Schema.Attribute.JSON;
-    swaps: Schema.Attribute.Integer;
-    updatedAt: Schema.Attribute.DateTime;
-    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-    user: Schema.Attribute.Relation<
-      'oneToOne',
-      'plugin::users-permissions.user'
-    >;
-    wants: Schema.Attribute.JSON;
-  };
-}
-
 export interface PluginContentReleasesRelease
   extends Struct.CollectionTypeSchema {
   collectionName: 'strapi_releases';
@@ -1112,6 +1072,7 @@ export interface PluginUsersPermissionsUser
       'oneToMany',
       'api::request.request'
     >;
+    swaps: Schema.Attribute.Integer;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -1139,7 +1100,6 @@ declare module '@strapi/strapi' {
       'api::edit-skill.edit-skill': ApiEditSkillEditSkill;
       'api::request.request': ApiRequestRequest;
       'api::review.review': ApiReviewReview;
-      'api::swapper.swapper': ApiSwapperSwapper;
       'plugin::content-releases.release': PluginContentReleasesRelease;
       'plugin::content-releases.release-action': PluginContentReleasesReleaseAction;
       'plugin::i18n.locale': PluginI18NLocale;
