@@ -26,6 +26,7 @@ export default [
       origin: [
         'http://localhost:3000',
         'https://swap-skills-next.vercel.app',
+        'https://swap-skills-m2qtjb3xb-swapskill.vercel.app'
       ],
       methods: ['GET', 'POST', 'PUT', 'PATCH', 'DELETE', 'HEAD', 'OPTIONS'],
       headers: ['Content-Type', 'Authorization', 'Origin', 'Accept'],
